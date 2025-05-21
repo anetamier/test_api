@@ -1,11 +1,11 @@
 import streamlit as st
 from openai import OpenAI
 
-API_KEY = "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"
+api_key = st.secrets["openai_key"]
 
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key=API_KEY,
+    api_key=api_key,
 )
 
 def gpt_request(user_content, LL_MODEL="deepseek/deepseek-chat-v3-0324:free"):
@@ -26,7 +26,7 @@ st.title("Определение семантики текста")
 
 user_input = st.text_area("Введите текст", height=200)
 if st.button("Отправить"):
-    if not API_KEY:
+    if not api_key:
         st.error("Пожалуйста, укажи API-ключ.")
     elif not user_input.strip():
         st.warning("Введите текст для отправки.")
