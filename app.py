@@ -22,7 +22,7 @@ def gpt_request(user_content, LL_MODEL="deepseek/deepseek-chat-v3-0324:free"):
     return response.choices[0].message.content
 
 # Интерфейс Streamlit
-st.title("Определение семантики текста")
+st.title("Определение тональности текста")
 
 user_input = st.text_area("Введите текст", height=200)
 if st.button("Отправить"):
